@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ app_name }}</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="bg-orb bg-orb-a"></div>
+  <div class="bg-orb bg-orb-b"></div>
+  <main class="app-shell">
+    <aside class="rooms-panel">
+      <header class="panel-header">
+        <h1>{{ app_name }}</h1>
+        <button id="refreshRoomsBtn" class="ghost-btn" type="button">Refresh</button>
+      </header>
+      <div id="roomsList" class="rooms-list"></div>
+    </aside>
+
+    <section class="chat-panel">
+      <header class="chat-header">
+        <div>
+          <h2 id="chatTitle">Select a room</h2>
+          <p id="chatMeta">Waiting for room selection</p>
+        </div>
+        <button id="loadOlderBtn" class="ghost-btn" type="button">Load older</button>
+      </header>
+
+      <div id="messages" class="messages"></div>
+
+      <form id="sendForm" class="composer" autocomplete="off">
+        <textarea
+          id="messageInput"
+          placeholder="Type a message..."
+          rows="2"
+          required
+        ></textarea>
+        <button id="sendBtn" type="submit">Send</button>
+      </form>
+      <p id="statusLine" class="status-line"></p>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

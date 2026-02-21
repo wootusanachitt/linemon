@@ -1,0 +1,2 @@
+"""Linemon frontend package."""
+

@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap");
+
+:root {
+  --bg: #f6f4ee;
+  --bg-panel: #fffefb;
+  --bg-soft: #f1ece1;
+  --text: #1a2a29;
+  --text-soft: #5d6b69;
+  --line: #dfd8ca;
+  --accent: #0f8c7a;
+  --accent-strong: #0c695c;
+  --danger: #c7352b;
+  --shadow: 0 18px 45px rgba(28, 31, 21, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 0% 0%, #f2ece0 0%, var(--bg) 40%);
+  min-height: 100vh;
+}
+
+.bg-orb {
+  position: fixed;
+  z-index: 0;
+  filter: blur(60px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.bg-orb-a {
+  width: 360px;
+  height: 360px;
+  background: #ffd089;
+  top: -100px;
+  left: -100px;
+}
+
+.bg-orb-b {
+  width: 320px;
+  height: 320px;
+  background: #9adbcf;
+  right: -80px;
+  bottom: -100px;
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+  width: min(1400px, 96vw);
+  margin: 22px auto;
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 16px;
+  min-height: calc(100vh - 44px);
+  animation: in 260ms ease-out;
+}
+
+.rooms-panel,
+.chat-panel {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--bg-panel);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.rooms-panel {
+  display: flex;
+  flex-direction: column;
+  background:
+    linear-gradient(165deg, rgba(15, 140, 122, 0.09), transparent 34%),
+    var(--bg-panel);
+}
+
+.panel-header,
+.chat-header {
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(6px);
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+#chatMeta {
+  margin: 4px 0 0;
+  color: var(--text-soft);
+  font-size: 0.86rem;
+}
+
+.rooms-list {
+  padding: 10px;
+  overflow-y: auto;
+  display: grid;
+  gap: 8px;
+}
+
+.room-item {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 11px;
+  display: grid;
+  gap: 5px;
+  text-align: left;
+  background: #fffdfa;
+  cursor: pointer;
+  transition: border-color 140ms ease, transform 140ms ease, background-color 140ms ease;
+}
+
+.room-item:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.room-item.active {
+  border-color: var(--accent);
+  background: #eef8f5;
+}
+
+.room-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.room-preview,
+.room-time {
+  color: var(--text-soft);
+  font-size: 0.8rem;
+}
+
+.chat-panel {
+  display: flex;
+  flex-direction: column;
+  background:
+    linear-gradient(180deg, rgba(154, 219, 207, 0.15), transparent 120px),
+    var(--bg-panel);
+}
+
+.messages {
+  padding: 18px;
+  overflow-y: auto;
+  flex: 1;
+  display: grid;
+  gap: 10px;
+}
+
+.msg-row {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 14px;
+  padding: 11px 12px;
+  animation: msg-in 180ms ease-out;
+}
+
+.msg-meta {
+  font-size: 0.76rem;
+  color: var(--text-soft);
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.msg-body {
+  margin-top: 6px;
+  white-space: pre-wrap;
+  line-height: 1.45;
+}
+
+.msg-attachment {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
+.composer {
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--bg-soft);
+}
+
+textarea {
+  width: 100%;
+  resize: none;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 11px;
+  font: inherit;
+  min-height: 44px;
+}
+
+textarea:focus {
+  outline: 2px solid rgba(15, 140, 122, 0.25);
+  border-color: var(--accent);
+}
+
+button {
+  font: inherit;
+}
+
+#sendBtn,
+.ghost-btn {
+  border: 1px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+
+#sendBtn {
+  padding: 0 16px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+#sendBtn:hover:not(:disabled) {
+  background: var(--accent-strong);
+}
+
+#sendBtn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.ghost-btn {
+  padding: 6px 11px;
+  border-color: var(--line);
+  background: #fff;
+}
+
+.ghost-btn:hover {
+  border-color: var(--accent);
+}
+
+.status-line {
+  margin: 0;
+  min-height: 24px;
+  padding: 3px 15px 11px;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.status-line.error {
+  color: var(--danger);
+}
+
+.muted {
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  padding: 14px;
+}
+
+@keyframes in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 940px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .rooms-panel {
+    max-height: 36vh;
+  }
+}
