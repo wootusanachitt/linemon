@@ -1,0 +1,9 @@
+{
+  "bind_host": "0.0.0.0",
+  "bind_port": 8788,
+  "python_exe": ".venv\\Scripts\\python.exe",
+  "line_capture_script": "line_capture.py",
+  "linemon_config": "linemon_config.json",
+  "command_timeout_sec": 120,
+  "api_token": ""
+}
