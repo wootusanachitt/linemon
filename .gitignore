@@ -1,0 +1,14 @@
+logs/
+debug/
+state.sqlite
+state.sqlite-*
+state_line.sqlite
+state_line.sqlite-*
+__pycache__/
+*.pyc
+.venv/
+.env
+*.log
+.linemon.line_capture.lock
+logs_line/
+config_tmp*.json

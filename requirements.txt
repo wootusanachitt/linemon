@@ -1,0 +1,12 @@
+pywinauto>=0.6.8
+pywin32>=306
+comtypes>=1.2.0
+mss>=9.0.1
+opencv-python>=4.9.0.80
+numpy>=1.26.0
+pillow>=10.0.0
+pytesseract>=0.3.10
+requests>=2.31.0
+python-dotenv>=1.0.1
+PyMySQL>=1.1.1
+boto3>=1.34.0
